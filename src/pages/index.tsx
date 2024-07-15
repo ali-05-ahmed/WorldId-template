@@ -1,6 +1,8 @@
 import { VerificationLevel, IDKitWidget } from "@worldcoin/idkit";
 import type { ISuccessResult } from "@worldcoin/idkit";
 import type { VerifyReply } from "./api/verify";
+import ig from "./../../public/kresuslogo.png"
+import Image from "next/image";
 
 export default function Home() {
 	if (!process.env.NEXT_PUBLIC_WLD_APP_ID) {
@@ -12,7 +14,8 @@ export default function Home() {
 
 	const onSuccess = (result: ISuccessResult) => {
 		// This is where you should perform frontend actions once a user has been verified, such as redirecting to a new page
-		window.alert("Successfully verified with World ID! Your nullifier hash is: " + result.nullifier_hash);
+		// window.alert("Successfully verified with World ID! Your nullifier hash is: " + result.nullifier_hash);
+		window.alert("Successfully verified with World ID! Your NFT in Mintetd on Base Chain");
 	};
 
 	const handleProof = async (result: ISuccessResult) => {
@@ -44,7 +47,9 @@ export default function Home() {
 	return (
 		<div>
 			<div className="flex flex-col items-center justify-center align-middle h-screen">
-				<p className="text-2xl mb-5">World ID Cloud Template</p>
+				<Image  src={ig} width={150} alt="Kresus logo"/>
+				<br/>
+				<p className="text-2xl mb-5">World ID X Kresus</p>
 				<IDKitWidget
 					action={process.env.NEXT_PUBLIC_WLD_ACTION!}
 					app_id={process.env.NEXT_PUBLIC_WLD_APP_ID as `app_${string}`}
@@ -54,7 +59,7 @@ export default function Home() {
 				>
 					{({ open }) =>
 						<button className="border border-black rounded-md" onClick={open}>
-							<div className="mx-3 my-1">Verify with World ID</div>
+							<div className="mx-3 my-1">Verify with World ID to Mint NFT</div>
 						</button>
 					}
 				</IDKitWidget>
