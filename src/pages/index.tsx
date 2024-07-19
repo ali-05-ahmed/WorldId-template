@@ -4,8 +4,18 @@ import type { VerifyReply } from "./api/verify";
 import mintNFT from "./smartContractInteraction/mint";
 import ig from "./../../public/kresuslogo.png"
 import Image from "next/image";
+import { SetStateAction, useState } from "react";
 
 export default function Home() {
+
+	let [NFTHashLink,setNFTHashLink] = useState (" not found");
+	let [hashColor,setTextColor] = useState ('red'); 
+
+	function toggle(link: SetStateAction<string>){
+		setNFTHashLink(link);
+		setTextColor('green');
+	}
+
 	if (!process.env.NEXT_PUBLIC_WLD_APP_ID) {
 		throw new Error("app_id is not set in environment variables!");
 	}
@@ -19,6 +29,7 @@ export default function Home() {
 		var result = await mintNFT();
 		console.log("Minted NFT Hash: https://sepolia.etherscan.io/tx/" + result);
 		window.alert("Successfully verified with World ID! Your NFT is Minted on sepolia testnet chain\nNFT Hash: " + result);
+		toggle(process.env.NEXT_PUBLIC_SEPOLIA_LINK! + result);
 	};
 
 	const handleProof = async (result: ISuccessResult) => {
@@ -66,9 +77,10 @@ export default function Home() {
 						</button>
 					}
 				</IDKitWidget>
-				{/* <div >
-				<a href="https://sepolia.etherscan.io/tx/0x7ceb3e8f3fb12fc74435cb9dc67ae849494f240f7635969cce0e42720525545c">Minted NFT Hash</a>
-				</div> */}
+				<div style={{textAlign: 'center', marginTop:15}}>
+					Minted NFT Hash : 
+					<a href={NFTHashLink} style={{color: hashColor}}>{NFTHashLink}</a>
+				</div>
 			</div>
 		</div>
 	);
