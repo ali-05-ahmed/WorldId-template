@@ -12,7 +12,7 @@ export default function Home() {
 	if (!process.env.NEXT_PUBLIC_WLD_ACTION) {
 		throw new Error("action is not set in environment variables!");
 	}
-
+	
 	const onSuccess = async (result: ISuccessResult) => {
 		// This is where you should perform frontend actions once a user has been verified, such as redirecting to a new page
 		// window.alert("Successfully verified with World ID! Your nullifier hash is: " + result.nullifier_hash);

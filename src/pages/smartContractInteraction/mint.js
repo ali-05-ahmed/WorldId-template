@@ -2,9 +2,9 @@ require("dotenv").config();
 const  { Web3 } = require("web3");
 const abi =require ("./abi/mintABI");
 
-const privateKey = "0x5be0346301906ac08a72ea7243afcb743d080b1cd245d189759a167e4d7aeee3";
-const contractAddress = "0x35e0fE9f6145608AA4625AfCb3868c61aA1Dc4ae";
-const infuraAPI = "wss://sepolia.infura.io/ws/v3/000345bee54842babc636ba80290f27d";
+const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY;
+const contractAddress = process.env.NEXT_PUBLIC_NFT_CONTRACT_HASH;
+const infuraAPI = process.env.NEXT_PUBLIC_INFURA_API;
 
 export default async function mintNFT() 
 {
@@ -22,7 +22,7 @@ export default async function mintNFT()
     const txParams = {
         gas:gasEstimate,
         from: account[0].address,
-        to: "0x35e0fE9f6145608AA4625AfCb3868c61aA1Dc4ae",
+        to: contractAddress,
         data: encode,
     };
     const receipt = await web3.eth.sendTransaction(txParams);
