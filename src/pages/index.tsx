@@ -1,21 +1,35 @@
 import { VerificationLevel, IDKitWidget } from "@worldcoin/idkit";
 import type { ISuccessResult } from "@worldcoin/idkit";
 import type { VerifyReply } from "./api/verify";
+import mintNFT from "./smartContractInteraction/mint";
 import ig from "./../../public/kresuslogo.png"
 import Image from "next/image";
+import { SetStateAction, useState } from "react";
 
 export default function Home() {
+
+	let [NFTHashLink,setNFTHashLink] = useState (" not found");
+	let [hashColor,setTextColor] = useState ('red'); 
+
+	function toggle(link: SetStateAction<string>){
+		setNFTHashLink(link);
+		setTextColor('green');
+	}
+
 	if (!process.env.NEXT_PUBLIC_WLD_APP_ID) {
 		throw new Error("app_id is not set in environment variables!");
 	}
 	if (!process.env.NEXT_PUBLIC_WLD_ACTION) {
-		throw new Error("app_id is not set in environment variables!");
+		throw new Error("action is not set in environment variables!");
 	}
-
-	const onSuccess = (result: ISuccessResult) => {
+	
+	const onSuccess = async (result: ISuccessResult) => {
 		// This is where you should perform frontend actions once a user has been verified, such as redirecting to a new page
 		// window.alert("Successfully verified with World ID! Your nullifier hash is: " + result.nullifier_hash);
-		window.alert("Successfully verified with World ID! Your NFT in Mintetd on Base Chain");
+		var mintNFTResult = await mintNFT();
+		console.log("Minted NFT Hash: https://sepolia.etherscan.io/tx/" + mintNFTResult);
+		window.alert("Successfully verified with World ID! Your NFT is Minted on sepolia testnet chain\nNFT Hash: " + mintNFTResult);
+		toggle(process.env.NEXT_PUBLIC_SEPOLIA_LINK! + mintNFTResult);
 	};
 
 	const handleProof = async (result: ISuccessResult) => {
@@ -63,6 +77,10 @@ export default function Home() {
 						</button>
 					}
 				</IDKitWidget>
+				<div style={{textAlign: 'center', marginTop:15}}>
+					Minted NFT Hash : 
+					<a href={NFTHashLink} style={{color: hashColor}}>{NFTHashLink}</a>
+				</div>
 			</div>
 		</div>
 	);
