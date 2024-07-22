@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/smartContractInteractions/mint.js", "src/pages/smartContractInteraction/mint.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/smartContractInteractions/mint.js", "src/smartContractInteraction/mintNFT.js"],
   "exclude": ["node_modules"]
 }

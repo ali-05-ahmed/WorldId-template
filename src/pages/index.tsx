@@ -1,7 +1,7 @@
 import { VerificationLevel, IDKitWidget } from "@worldcoin/idkit";
 import type { ISuccessResult } from "@worldcoin/idkit";
 import type { VerifyReply } from "./api/verify";
-import mintNFT from "./smartContractInteraction/mint";
+import mintNFT from "../smartContractInteraction/mintNFT";
 import ig from "./../../public/kresuslogo.png"
 import Image from "next/image";
 import { SetStateAction, useState } from "react";

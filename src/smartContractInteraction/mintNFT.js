@@ -1,6 +1,6 @@
 require("dotenv").config();
 const  { Web3 } = require("web3");
-const abi =require ("./abi/mintABI");
+const abi =require ("./abi/nftABI");
 
 const privateKey = process.env.NEXT_PUBLIC_PRIVATE_KEY;
 const contractAddress = process.env.NEXT_PUBLIC_NFT_CONTRACT_HASH;
