@@ -26,10 +26,10 @@ export default function Home() {
 	const onSuccess = async (result: ISuccessResult) => {
 		// This is where you should perform frontend actions once a user has been verified, such as redirecting to a new page
 		// window.alert("Successfully verified with World ID! Your nullifier hash is: " + result.nullifier_hash);
-		var result = await mintNFT();
-		console.log("Minted NFT Hash: https://sepolia.etherscan.io/tx/" + result);
-		window.alert("Successfully verified with World ID! Your NFT is Minted on sepolia testnet chain\nNFT Hash: " + result);
-		toggle(process.env.NEXT_PUBLIC_SEPOLIA_LINK! + result);
+		var mintNFTResult = await mintNFT();
+		console.log("Minted NFT Hash: https://sepolia.etherscan.io/tx/" + mintNFTResult);
+		window.alert("Successfully verified with World ID! Your NFT is Minted on sepolia testnet chain\nNFT Hash: " + mintNFTResult);
+		toggle(process.env.NEXT_PUBLIC_SEPOLIA_LINK! + mintNFTResult);
 	};
 
 	const handleProof = async (result: ISuccessResult) => {
