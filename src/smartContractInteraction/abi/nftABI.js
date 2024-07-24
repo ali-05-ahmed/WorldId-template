@@ -176,11 +176,48 @@ const abi = [
 		"type": "event"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_fromTokenId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_toTokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "BatchMetadataUpdate",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "MetadataUpdate",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "player",
+				"name": "recipient",
 				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "tokenURI",
+				"type": "string"
 			}
 		],
 		"name": "mintNFT",
