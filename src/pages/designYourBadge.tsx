@@ -28,7 +28,7 @@ export default function designYourBadge() {
 					<text style={{ fontWeight:'bold',color:'#030a74'}}>
 					<pre>{'STEP 2'}</pre></text>
 					<text style={{ color:'#030a74'}}>
-					<pre>{'  Customize it with the exclusive\n  Early Human filter'}</pre></text>
+					<pre>{'  Customize it with the Early\n  Human filter'}</pre></text>
 					</div>
 				</CardBody>
 				<Divider/>

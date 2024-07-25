@@ -10,11 +10,13 @@ import {useState} from "react";
 
 export default function verifyWithWorldIdToMintNFT() {
 
-	let [NFTHashLink,setNFTHashLink] = useState (" not found");
+	let [NFTHashLink,setNFTHashLink] = useState ("not found");
+	let [NFTHashText,setNFTHashText] = useState ("not found");
 	let [hashColor,setTextColor] = useState ('red'); 
 
 	function toggle(link: SetStateAction<string>){
 		setNFTHashLink(link);
+		setNFTHashText("View Your NFT");
 		setTextColor('green');
 	}
 	
@@ -90,22 +92,22 @@ export default function verifyWithWorldIdToMintNFT() {
 					<text>
 					<pre>{'Blockchain'}</pre></text>
 					<text style={{ fontWeight:'bold'}}>
-					<pre>{'                       Etheruem'}</pre></text>
+					<pre>{'                     Etheruem'}</pre></text>
 					</div>
 					<div  className="flex flex-row">
 					<text>
 					<pre>{'Token Standard'}</pre></text>
 					<text style={{ fontWeight:'bold'}}>
-					<pre>{'                    ERC-721'}</pre></text>
+					<pre>{'                 ERC-721'}</pre></text>
+					</div>
+					<div  className="flex flex-row">
+					<text>
+					<pre>{'Minted NFT                     '}</pre></text>
+					<a href={NFTHashLink} style={{color: hashColor,fontWeight:'bold'}}>{NFTHashText}</a>
 					</div>
 				</div>
 				</CardFooter>
-				<Divider style={{marginTop:10}}/>
 				</Card>
-				<div style={{color:'#030a74',marginTop:15}}>
-					Minted NFT: 
-					<a href={NFTHashLink} style={{color: hashColor}}>{NFTHashLink}</a>
-				</div>
 				<IDKitWidget
 					action={process.env.NEXT_PUBLIC_WLD_ACTION!}
 					app_id={process.env.NEXT_PUBLIC_WLD_APP_ID as `app_${string}`}
