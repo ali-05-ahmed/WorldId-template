@@ -14,7 +14,7 @@ export default function designYourBadge() {
 				<text style={{ fontSize:22,marginTop:20, color:'#030a74'}}>
 				<pre>{'  Design Your \n Exclusive Badge'}</pre></text>
 				<Card className="border rounded-md" style={{ width:320,fontSize:13,marginTop:20}} >
-				<CardHeader style={{margin:20}}>
+				<CardHeader style={{margin:15}}>
 					<div  className="flex flex-row">
 					<text style={{ fontWeight:'bold',color:'#030a74'}}>
 					<pre>{'STEP 1'}</pre></text>
@@ -23,7 +23,7 @@ export default function designYourBadge() {
 					</div>
 				</CardHeader>
 				<Divider/>
-				<CardBody style={{margin:20}}>
+				<CardBody style={{margin:15}}>
 					<div  className="flex flex-row">
 					<text style={{ fontWeight:'bold',color:'#030a74'}}>
 					<pre>{'STEP 2'}</pre></text>
@@ -32,7 +32,7 @@ export default function designYourBadge() {
 					</div>
 				</CardBody>
 				<Divider/>
-				<CardFooter style={{margin:20}}>
+				<CardFooter style={{margin:15}}>
 					<div  className="flex flex-row">
 					<text style={{ fontWeight:'bold',color:'#030a74'}}>
 					<pre>{'STEP 3'}</pre></text>

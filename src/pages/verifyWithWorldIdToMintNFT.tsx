@@ -61,7 +61,7 @@ export default function verifyWithWorldIdToMintNFT() {
 	return (
 		<div>
 			<div className="flex flex-col items-center justify-center align-middle h-screen">
-				<Card className="border rounded-md" style={{width:320,marginTop:20,borderRadius:10}} >
+				<Card className="border rounded-md" style={{width:300,marginTop:20,borderRadius:10}} >
 				<CardHeader>
 				<Image  src={nftIg} className="rounded-md" alt="NFT"/>
 				</CardHeader>
@@ -71,11 +71,11 @@ export default function verifyWithWorldIdToMintNFT() {
 					<text style={{ fontSize:15, fontWeight:'bold'}}>
 					<pre>{'Early Human #5481'}</pre></text>
 					<text style={{ fontSize:12}}>
-					<pre>{'Limited Edition Early Human Filter Included'}</pre></text>
+					<pre>{'Limited Edition Early Human Filter'}</pre></text>
 					</div>
 				</CardFooter>
 				</Card>
-				<Card style={{ width:320,fontSize:13,marginTop:10}} >
+				<Card style={{ width:300,fontSize:13,marginTop:10}} >
 				<CardHeader style={{marginTop:10}}>
 					<div  className="flex flex-col">
 					<text style={{ fontWeight:'bold',color:'#030a74'}}>
@@ -90,13 +90,13 @@ export default function verifyWithWorldIdToMintNFT() {
 					<text>
 					<pre>{'Blockchain'}</pre></text>
 					<text style={{ fontWeight:'bold'}}>
-					<pre>{'                          Etheruem'}</pre></text>
+					<pre>{'                       Etheruem'}</pre></text>
 					</div>
 					<div  className="flex flex-row">
 					<text>
 					<pre>{'Token Standard'}</pre></text>
 					<text style={{ fontWeight:'bold'}}>
-					<pre>{'                       ERC-721'}</pre></text>
+					<pre>{'                    ERC-721'}</pre></text>
 					</div>
 				</div>
 				</CardFooter>
@@ -114,7 +114,7 @@ export default function verifyWithWorldIdToMintNFT() {
 					verification_level={VerificationLevel.Device} // Change this to VerificationLevel.Device to accept Orb- and Device-verified users
 				>
 					{({ open }) =>
-						<button onClick={open} className="rounded-full text-white font-bold" style={{ height:45,width:320,marginTop:30,background:'#030a74'}} >
+						<button onClick={open} className="rounded-full text-white font-bold" style={{ height:45,width:310,marginTop:30,background:'#030a74'}} >
 						Verify with World ID to Mint NFT
 						</button>
 					}
